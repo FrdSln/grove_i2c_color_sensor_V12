@@ -41,3 +41,24 @@ class GroveI2CColorSensor:
 
         return (raw_color[0],raw_color[1],raw_color[2],raw_color[3],
                 raw_color[4],raw_color[5],raw_color[6],raw_color[7])
+
+    def read_rgbc(self):
+        # Lecture des registes ADC les uns après les autres
+        raw_color = []
+        for i in range(8):
+            register = bytes((0x90 | i,))
+            value = self.get_register(0x39, register)
+            try:
+                val_int = int.from_bytes(value, "big")
+            except:
+                val_int = 0
+            raw_color.append(val_int)
+            sleep(10)
+        # calcul les valeurs
+        green = raw_color[1] * 256 + raw_color[0]
+        red = raw_color[3] * 256 + raw_color[2]
+        blue = raw_color[5] * 256 + raw_color[4]
+        clear = raw_color[7] * 256 + raw_color[6]
+
+        return (red, green, blue, clear)
+
