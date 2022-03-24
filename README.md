@@ -33,6 +33,8 @@ Ecrit en **micropython** à partir de la version C++ _arduino_
 
 [https://github.com/Seeed-Studio/Grove_I2C_Color_Sensor](https://github.com/Seeed-Studio/Grove_I2C_Color_Sensor)
 
+[https://github.com/DexterInd/GrovePi/blob/master/Software/Python/grove_i2c_color_sensor](https://github.com/DexterInd/GrovePi/blob/master/Software/Python/grove_i2c_color_sensor/)
+
 ## Versions
 
 **Dernière version :** 1.0
